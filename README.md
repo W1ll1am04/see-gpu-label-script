@@ -32,7 +32,7 @@ Once the download has finished, run:
 ./gpu.sh
 ```
 
-#Finished.
+# Finished
 Your finished.
 
 ## License
