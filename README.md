@@ -13,3 +13,9 @@ Run the script:
 ./download.sh
 When its finished run:
 ./gpu.sh
+
+#debug
+if you get premission denied error while trying to run download.sh or gpu.sh then run:
+chmod 777 download.sh
+or:
+chmod 777 gpu.sh
