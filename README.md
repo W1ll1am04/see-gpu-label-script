@@ -13,7 +13,7 @@ See deployment for notes on how to deploy the project on a live system.
 ### Installing
 Get the script:
 ```
-wget https://github.com/W1ll1am04/see-vram-script/blob/master/download.sh
+wget https://raw.githubusercontent.com/W1ll1am04/see-vram-script/master/download.sh
 ```
 
 chmod the script:
