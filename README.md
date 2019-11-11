@@ -27,6 +27,12 @@ run the script:
 ./download.sh
 ```
 
+cd into downloaded directory
+
+```
+cd gpu-sh-script
+```
+
 Once the download has finished, run:
 ```
 ./gpu.sh
