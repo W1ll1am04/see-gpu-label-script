@@ -9,7 +9,7 @@ sudo wget http://ports.ubuntu.com/ubuntu-ports/pool/universe/m/mesa-demos/mesa-u
 dpkg -i mesa-utils_8.4.0-1_arm64.deb
 clear
 echo Installed Package MESA-UTILS.
-echo 
+echo  
 echo Show GPU Vram Script.
 echo Made by W1ll1am on github: https://github.com/W1ll1am04
 glxinfo | egrep -i 'device|memory'
