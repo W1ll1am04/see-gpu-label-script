@@ -1,6 +1,6 @@
 # see-vram-script
 
-see your current graphics and see your current vram and lots of other information about your graphics.
+See your current graphics hardware and information about it.
 this script currently is only designed to work for Ubuntu linux.
 
 ## Getting Started
