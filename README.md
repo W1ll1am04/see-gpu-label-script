@@ -12,7 +12,7 @@ These instructions will get you a copy of the project up and running on your loc
 See deployment for notes on how to deploy the project on a live system.
 
 
-### Installing
+### Downloading
 Get the script:
 ```
 wget https://raw.githubusercontent.com/W1ll1am04/see-vram-script/master/download.sh
@@ -28,6 +28,11 @@ run the script:
 ```
 ./download.sh
 ```
+
+If the script has sucessfully downloaded there should be a folder called:
+"gpu-sh-script" in the directory you downloaded the scripts too.
+
+### Installing
 
 cd into downloaded directory
 
