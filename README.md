@@ -15,12 +15,7 @@ See deployment for notes on how to deploy the project on a live system.
 ### Downloading
 Get the script:
 ```
-wget https://raw.githubusercontent.com/W1ll1am04/see-vram-script/master/download.sh
-```
-
-chmod the script:
-```
-chmod 777 download.sh
+wget https://raw.githubusercontent.com/W1ll1am04/see-vram-script/master/download.sh && chmod 777 download.sh
 ```
 
 run the script:
@@ -29,18 +24,21 @@ run the script:
 ./download.sh
 ```
 
-If the script has sucessfully downloaded there should be a folder called:
-"gpu-sh-script" in the directory you downloaded the scripts too.
+The script will now download.
+If you get "Download for gpu.sh Failed!!..."
+Then make sure you can acess github, if you still cannot download then please post issues in the issue tracker:
+https://github.com/W1ll1am04/see-vram-script/issues
 
-### Installing
 
-cd into downloaded directory
+### Using
+
+cd into created folder.
 
 ```
 cd gpu-sh-script
 ```
 
-Once the download has finished, run:
+Boom, run the script:
 ```
 ./gpu.sh
 ```
