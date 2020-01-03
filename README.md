@@ -31,7 +31,7 @@ Then make sure you can acess github, if you still cannot download then please po
 https://github.com/W1ll1am04/see-vram-script/issues
 
 
-### Using
+### Running GPU.sh
 
 cd into created folder.
 
