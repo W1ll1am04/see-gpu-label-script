@@ -25,7 +25,8 @@ run the script:
 ```
 
 The script will now download.
-If you get "Download for gpu.sh Failed!!..."
+* If you get "Download for gpu.sh Failed!!..."
+
 Then make sure you can acess github, if you still cannot download then please post issues in the issue tracker:
 https://github.com/W1ll1am04/see-vram-script/issues
 
