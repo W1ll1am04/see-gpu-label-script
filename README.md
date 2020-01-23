@@ -1,5 +1,3 @@
-![image](https://i.imgur.com/cPpKsoF.png)
-
 # see-vram-script
 
 See your current graphics hardware and information about it.
