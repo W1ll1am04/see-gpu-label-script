@@ -12,7 +12,7 @@ then
 fi
 clear
 echo 
-echo Show GPU Vram Script.
+echo see-vram-script
 echo https://github.com/W1ll1am04
 echo 
 gpu=`sudo lshw -short | grep -i --color display`
