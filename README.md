@@ -3,6 +3,8 @@
 See your current graphics hardware and information about it.
 this script currently is only designed to work for Ubuntu linux.
 
+![broken imgur link?](https://i.imgur.com/lwy0Uca.png)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
