@@ -1,6 +1,6 @@
 #!/bin/sh
 clear
-dep="lshw"
+dep="mesa-utils"
 echo see-vram-script.
 echo https://github.com/W1ll1am04
 echo  
