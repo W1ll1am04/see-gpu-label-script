@@ -1,6 +1,7 @@
 # see-vram-script
 
-See your current graphics hardware and information about it.
+A tool to see your Graphics card's name.
+
 this script currently is only designed to work for Ubuntu linux.
 
 ![broken imgur link?](https://i.imgur.com/lwy0Uca.png)
