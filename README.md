@@ -25,19 +25,12 @@ run the script:
 ./download.sh
 ```
 
-The script will now download.
-* If you get "Download for gpu.sh Failed!!..."
-
-Then make sure you can acess to raw.githubusercontent.com/, if you still cannot download then please post issues in the issue tracker:
-https://github.com/W1ll1am04/see-vram-script/issues
-
-
-### Running GPU.sh
+# Running
 
 cd into created folder.
 
 ```
-cd gpu-sh-script
+cd see-vram-script
 ```
 
 Boom, run the script:
@@ -45,9 +38,6 @@ Boom, run the script:
 ./gpu.sh
 ```
 
-# Finished
-Your finished.
-
 ## License
 
-This project is licensed under the GNU Public License v3 - see the [LICENSE](LICENSE) file for details
+This project is licensed under the AGPL-3.0 license - see the [LICENSE](LICENSE) file for details
