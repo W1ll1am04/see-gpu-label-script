@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 clear
 dep="mesa-utils"
 echo see-vram-script.
