@@ -1,74 +1,37 @@
-#!/bin/sh
-clear
-echo gpu.sh download script.
-echo W1ll1am04 github: https://github.com/W1ll1am04
-echo 
-mkdir gpu-sh-script
-cd gpu-sh-script
-wget -q - https://raw.githubusercontent.com/W1ll1am04/see-vram-script/master/gpu.sh >>NULL
-FILE=gpu.sh
-if [ -f "$FILE" ]; then
-	    echo "$FILE Sucessfully downloaded."
-else
-	echo "Download for $FILE Failed!!..."
+#!/bin/bash
 
-    fi
-mkdir alternate
-cd alternate
-wget -q - https://raw.githubusercontent.com/W1ll1am04/see-vram-script/master/alternate/gpu-alternate-arm64.sh >>NULL
-GFILE=gpu-alternate-arm64.sh
-if [ -f "$GFILE" ]; then
-	    echo "$GFILE Suessfully downloaded."
-    
-else
-	echo "Download for $GFILE Failed!!..."
-    
-    fi
-wget -q - https://raw.githubusercontent.com/W1ll1am04/see-vram-script/master/alternate/gpu-alternate-armhf.sh >>NULL
-GSC=gpu-alternate-armhf.sh
-if [ -f "$GSC" ]; then
-	    echo "$GSC Sucessfully downloaded."
+# information
+appname="see-vram-script download.sh"
+description="see-vram-script's automated downloader."
 
-else
-	echo "Download for $GSC Failed!!..."
+#dependencies
+mesa="mesa-utils"
 
-    fi
-wget -q - https://raw.githubusercontent.com/W1ll1am04/see-vram-script/master/alternate/gpu-alternate-powerpc.sh >>NULL
-GPPC=gpu-alternate-powerpc.sh
-if [ -f "$GPPC" ]; then
-	    echo "$GPPC Sucessfully downloaded."
-    
-else
-	echo "Download for $GPPC Failed!!..."
-    
-    fi
-cd ..
-wget -q - https://raw.githubusercontent.com/W1ll1am04/see-vram-script/master/README.md >>NULL
-RDME=README.md
-if [ -f "$RDME" ]; then
-	    echo "$RDME Sucessfully downloaded."
-    
-else
-	echo "Download for $RDME Failed!!..."
-    
-    fi
-echo 
-echo 
-echo Running CHMOD...
-chmod 777 gpu.sh >>NULL
-chmod 777 alternate/gpu-alternate-arm64.sh >>NULL
-chmod 777 alternate/gpu-alternate-armhf.sh >>NULL
-chmod 777 alternate/gpu-alternate-powerpc.sh >>NULL
-echo 
-echo 
-echo Finished downloading gpu.sh
-echo  
-echo 
-rm NULL >&-
+[ "$UID" -eq 0 ] || exec sudo "$0" "$@"
 
-if [ -f "download.sh" ]; then
-	    echo "Renaming download.sh to redownload.sh.."
-	    mv download.sh redownload.sh >>NULL
+# Update apt cache
+echo Updating apt cache...
+apt update >> /dev/null || echo Failed updating apt cache...
+
+# Check for missing dependencies
+if [ $(dpkg-query -W -f='${Status}' $mesa 2>/dev/null | grep -c "ok installed") -eq 0 ];
+then
+	apt-get install $mesa --assume-yes >> /dev/null;
+fi
+
+if [ $(dpkg-query -W -f='${Status}' git 2>/dev/null | grep -c "ok installed") -eq 0 ];
+then
+	apt-get install git --assume-yes >> /dev/null;
 else
-		echo ""
-    fi
+	git clone https://github.com/W1ll1am04/see-vram-script
+	echo -e "\n"
+	FILE=see-vram-script
+	if [ -d "$FILE" ]; then
+		echo "Attempting to setup source with chmod.."
+		cd see-vram-script
+		chmod +x gpu.sh
+	else
+		echo "Cannot find source folder, You are going to have cmod source yourself."
+	fi
+fi
+echo "Finished downloading..."
