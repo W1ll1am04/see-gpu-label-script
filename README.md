@@ -16,7 +16,7 @@ See deployment for notes on how to deploy the project on a live system.
 ### Downloading
 Get the script:
 ```
-wget https://raw.githubusercontent.com/W1ll1am04/see-vram-script/master/download.sh && chmod 777 download.sh
+wget https://raw.githubusercontent.com/W1ll1am04/see-vram-script/master/download.sh && chmod +x download.sh
 ```
 
 run the script:
