@@ -7,7 +7,7 @@ echo
 if [ $(dpkg-query -W -f='${Status}' $dep 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
   echo Installing MESA-UTILS
-  sudo apt-get install $dep;
+  sudo apt-get install $dep >> /dev/null;
   echo Done installing MESA-UTILS
 fi
 clear
