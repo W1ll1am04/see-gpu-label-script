@@ -13,18 +13,12 @@ These instructions will get you a copy of the project up and running on your loc
 See deployment for notes on how to deploy the project on a live system.
 
 
-### Downloading
+### Getting the script
+
 Get the script:
 ```
-wget https://raw.githubusercontent.com/W1ll1am04/see-vram-script/master/download.sh && chmod +x download.sh
+git clone https://github.com/W1ll1am04/see-vram-script/
 ```
-
-run the script:
-
-```
-./download.sh
-```
-
 # Running
 
 cd into created folder.
