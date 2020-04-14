@@ -8,6 +8,7 @@ then
   echo Installing $dep
   sudo apt-get install $dep >> /dev/null;
   echo Done installing $dep
+  echo -e "\n"
 fi 
 gpu=`sudo lshw -short | grep -i --color display`
 
