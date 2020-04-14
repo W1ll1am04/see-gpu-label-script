@@ -1,20 +1,14 @@
 #!/bin/bash
-clear
-dep="mesa-utils"
+dep="lshw"
 echo see-vram-script.
 echo https://github.com/W1ll1am04
 echo  
 if [ $(dpkg-query -W -f='${Status}' $dep 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
-  echo Installing MESA-UTILS
+  echo Installing $dep
   sudo apt-get install $dep >> /dev/null;
-  echo Done installing MESA-UTILS
-fi
-clear
-echo 
-echo see-vram-script
-echo https://github.com/W1ll1am04
-echo 
+  echo Done installing $dep
+fi 
 gpu=`sudo lshw -short | grep -i --color display`
 
 readarray -d "y" -t strarr <<< "$gpu"
