@@ -6,6 +6,8 @@ this script currently is only designed to work for Ubuntu linux.
 
 [![asciicast?](https://asciinema.org/a/321696.png)](https://asciinema.org/a/321696)
 
+Oғᴄᴏᴜʀsᴇ ʏᴏᴜ ᴅᴏɴᴛ ɴᴇᴇᴅ ᴛᴏ ᴜsᴇ ʀᴏᴏᴛ, ʙᴜᴛ ɪ ʀᴀɴ ɪᴛ ᴡɪᴛʜ sᴜᴅᴏ ᴀsᴄɪɪɴᴇᴍᴀ sᴏ ɪ ᴇɴᴅᴇᴅ ᴜᴘ ᴀs ʀᴏᴏᴛ.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
