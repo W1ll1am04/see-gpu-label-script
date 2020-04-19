@@ -4,7 +4,7 @@ A tool to see your Graphics card's name.
 
 this script currently is only designed to work for Ubuntu linux.
 
-![broken imgur link?](https://i.imgur.com/lwy0Uca.png)
+[![asciicast?](https://asciinema.org/a/321696.png)](https://asciinema.org/a/321696)
 
 ## Getting Started
 
