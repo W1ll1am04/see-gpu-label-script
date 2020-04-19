@@ -1,4 +1,4 @@
-# see-vram-script
+# see-gpu-label-script
 
 A tool to see your Graphics card's name.
 
