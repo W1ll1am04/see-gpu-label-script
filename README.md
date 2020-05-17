@@ -21,7 +21,7 @@ Get the script:
 ```
 git clone https://github.com/W1ll1am04/see-gpu-label-script/
 ```
-# Running
+# Executing & Setup
 
 cd into created folder.
 
