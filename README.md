@@ -1,6 +1,6 @@
 # see-gpu-label-script
 
-A tool to see your Graphics card's name.
+A tool to see your gpu's name.
 
 this script currently is only designed to work for Ubuntu linux.
 
@@ -35,7 +35,17 @@ Boom, now run the script:
 ```
 ./gpu.sh
 ```
+## Parameters
+```
+usage: ./gpu.sh [arg].
+A tool to see your gpu's name.
+Arguments & usage, and an explanation: 
 
+-h, --help        display this message."
+-n, --no-su       dont request superuser permission.
+-g, --gpu-only    display gpu label only.
+-c, --chip        display chip label only.
+```
 ## License
 
 This project is licensed under the GPL-3.0 license - see the [LICENSE](LICENSE) file for details
