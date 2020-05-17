@@ -6,7 +6,7 @@ this script currently is only designed to work for Ubuntu linux.
 
 [![asciicast?](https://asciinema.org/a/321696.png)](https://asciinema.org/a/321696)
 
-Dɪsᴄʟᴀɪᴍᴇʀ: sᴇᴇ-ɢᴘᴜ-ʟᴀʙᴇʟ-sᴄʀɪᴘᴛ ᴅᴏᴇs ɴᴏᴛ ʀᴇǫᴜɪʀᴇ sᴜᴘᴇʀᴜsᴇʀ ᴘᴇʀᴍɪssɪᴏɴ.
+sᴇᴇ-ɢᴘᴜ-ʟᴀʙᴇʟ-sᴄʀɪᴘᴛ ᴅᴏᴇs ɴᴏᴛ ʀᴇǫᴜɪʀᴇ sᴜᴘᴇʀᴜsᴇʀ, ʙᴜᴛ ʀᴇsᴜʟᴛs ᴍᴀʏ ʙᴇ ɪɴᴀᴄᴄᴜʀᴀᴛᴇ ɪғ ʏᴏᴜ ᴅᴏɴᴛ ʀᴜɴ ɪᴛ ᴀs sᴜᴘᴇʀᴜᴇʀ.
 
 ## Getting Started
 
