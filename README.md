@@ -7,8 +7,6 @@ this script currently is only designed to work for Ubuntu linux.
 [![asciicast?](https://asciinema.org/a/321696.png)](https://asciinema.org/a/321696)
 This video was made when see-gpu-label-script was still in version 2.0. i will eventually update it.
 
-sᴇᴇ-ɢᴘᴜ-ʟᴀʙᴇʟ-sᴄʀɪᴘᴛ ᴅᴏᴇs ɴᴏᴛ ʀᴇǫᴜɪʀᴇ sᴜᴘᴇʀᴜsᴇʀ, ʙᴜᴛ ʀᴇsᴜʟᴛs ᴍᴀʏ ʙᴇ ɪɴᴀᴄᴄᴜʀᴀᴛᴇ ɪғ ʏᴏᴜ ᴅᴏɴᴛ ʀᴜɴ ɪᴛ ᴀs sᴜᴘᴇʀᴜᴇʀ.
-
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
