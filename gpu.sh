@@ -2,9 +2,9 @@
 
 # define strings & bools
 dep="lshw"
+dep2="sed"
 req_su=true
 gpu_only=false
-chip_only=false
 
 function display_help() {
   echo "usage: ./gpu.sh [arg]"
@@ -14,7 +14,6 @@ function display_help() {
   echo "-h, --help        display this message."
   echo "-n, --no-su       dont request superuser permission."
   echo "-g, --gpu-only    display gpu label only."
-  echo "-c, --chip        display chip label only."
 }
 
 # parse arguments
@@ -33,14 +32,10 @@ else
   else if [ "$1" == "--gpu-only" ] || [ "$1" == "-g" ]
   then
     gpu_only=true
-  else if [ "$1" == "--chip" ] || [ "$1" == "-c" ]
-  then
-    chip_only=true
   else
     echo "Unknown parameter: '$1'"
     echo "Use -h for more information."
     exit
-  fi
   fi
   fi
   fi
@@ -53,21 +48,34 @@ function credit() {
   return 0;
 }
 
-# check if 'lshw' is installed, if it isnt install it. Because this whole script relies on lshw.
+# check if 'lshw' is installed, if it isnt install it. Because the whole script relies on 'lshw'.
 if [ $(dpkg-query -W -f='${Status}' $dep 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
-  gpu_only=false
-  credit
   echo "Installing $dep"
   if sudo apt-get install $dep >> /dev/null;
   then
     echo "Done installing $dep"
     echo
   else
-    echo "Failed installing $dep, you will have to manually install it."
+    echo "Failed installing $dep, you will have to manually install $dep."
     echo
   fi
 fi 
+
+# check if 'sed' is installed, if it isnt install it. Because the splitting relies on 'sed'.
+if [ $(dpkg-query -W -f='${Status}' $dep2 2>/dev/null | grep -c "ok installed") -eq 0 ];
+then
+  echo "Installing $dep2"
+  if sudo apt-get install $dep2 >> /dev/null;
+  then
+    echo "Done installing $dep2"
+    echo
+  else
+    echo "Failed installing $dep2, you will have to manually install $dep."
+    echo
+  fi
+fi 
+
 if [ "$gpu_only" = false ] ; 
 then
   credit
@@ -84,8 +92,9 @@ fi
 # Splitting away spaces & brackets.
 
 readarray -d "y" -t strarr <<< "$gpu_command"
-readarray -d "[" -t almost <<< "${strarr[1]}"
-readarray -d "]" -t gpu <<< "${almost[1]}"
+gpu=`echo ${strarr[1]} | sed 's/ *$//g'`
+
+# readarray -d "" -t gpu <<< "${almost[1]}"
 if [ "$chip_only" = true ] ; 
 then
   split_space=(${almost[0]})
