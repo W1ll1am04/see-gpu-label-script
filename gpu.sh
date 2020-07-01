@@ -7,7 +7,7 @@ gpu_only=false
 sdt=true
 
 function usage() {
-  echo "usage: ./gpu.sh [OPTION]... [OPTION]... [OPTION]...
+  echo "usage: ./gpu.sh [OPTION]... [OPTION]... [OPTION]..."
   echo "A tool to see your gpu's label."
   echo "Arguments & usage, and an explanation: "
   echo
