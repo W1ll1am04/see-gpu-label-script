@@ -22,14 +22,11 @@ git clone https://github.com/W1ll1am04/see-gpu-label-script/
 ```
 # Executing & Setup
 
-cd into see-gpu-label-script directory.
+cd & assign premissions.
 ```
-cd see-gpu-label-script
+cd see-gpu-label-script && chmod +x gpu.sh
 ```
-Assign permission.
-```
-chmod +x gpu.sh
-```
+
 Boom, now run the script:
 ```
 ./gpu.sh
