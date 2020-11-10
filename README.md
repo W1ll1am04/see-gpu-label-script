@@ -18,7 +18,7 @@ See deployment for notes on how to deploy the project on a live system.
 
 Get the script:
 ```
-git clone https://github.com/W1ll1am04/see-gpu-label-script/
+git clone https://github.com/W1ll1am04/see-gpu-label-script.git
 ```
 # Executing & Setup
 
