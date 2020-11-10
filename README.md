@@ -20,7 +20,7 @@ Get the script:
 ```
 git clone https://github.com/W1ll1am04/see-gpu-label-script.git
 ```
-# Executing & Setup
+# Setup & Executing
 
 cd & assign premissions.
 ```
