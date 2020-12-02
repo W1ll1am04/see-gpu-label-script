@@ -1,55 +1,38 @@
 #!/bin/bash
 
-dep="lshw"
-dep2="sed"
+declare -a dependencies=( "lshw" "sed" )
+
 req_su=true
 gpu_only=false
-sdt=true
+skip_dep_test=false
+rconfig=false
+
+# shellcheck source=/dev/null
+source "$(dirname "$0")/misc.sh"
+
+# shellcheck source=/dev/null
+source "$(dirname "$0")/config_handler.sh"
 
 function usage() {
   echo "usage: ./gpu.sh [OPTION]... [OPTION]... [OPTION]..."
   echo "A tool to see your gpu's label."
   echo "Arguments & usage, and an explanation: "
-  echo
-  echo "-h, --help            display this message."
-  echo "-n, --no-su           dont request superuser permission."
-  echo "-g, --gpu-only        display gpu label only."
-  echo "-s, --skip-dep-test   skip dependency test and just run the program."
+  echo -e "\nOptions: "
+  echo "-h, --help              display this message."
+  echo "-n, --no-su             dont request superuser permission."
+  echo "-g, --gpu-only          display gpu label only."
+  echo "-s, --skip-dep-test     skip dependency test and just run the program."
+  echo "-r  --reset-config      reset the current config file."
 }
 
-function dependency_test() {
-  # check if 'lshw' is installed, if it isnt install it. Because the whole script relies on 'lshw' to get gpu information.
-  if [ $(dpkg-query -W -f='${Status}' $dep 2>/dev/null | grep -c "ok installed") -eq 0 ];
-  then
-    echo "Installing $dep"
-    if sudo apt-get install $dep >> /dev/null;
-    then
-      echo "Done installing $dep"
-      echo
-    else
-      echo "Failed installing $dep, you will have to manually install $dep."
-      echo
-    fi
-  fi 
-
-  # check if 'sed' is installed, if it isnt install it. Because the splitting relies on 'sed'.
-  if [ $(dpkg-query -W -f='${Status}' $dep2 2>/dev/null | grep -c "ok installed") -eq 0 ];
-  then
-    echo "Installing $dep2"
-    if sudo apt-get install $dep2 >> /dev/null;
-    then
-      echo "Done installing $dep2"
-      echo
-    else
-      echo "Failed installing $dep2, you will have to manually install $dep."
-      echo
-    fi
-  fi 
+function credit() {
+  echo "see-vram-script."
+  echo "https://github.com/W1ll1am04"
+  echo ""
 }
 
 # parse arguments
-if [ $# -eq 0 ]
-then
+if [ $# -eq 0 ]; then
   true
 else
   for arg in "$@"; do
@@ -59,71 +42,74 @@ else
       "--no-su") set -- "$@" "-n" ;;
       "--gpu-only")   set -- "$@" "-g" ;;
       "--skip-dep-test")   set -- "$@" "-s" ;;
+      "--reset-config")   set -- "$@" "-r" ;;
       *)        set -- "$@" "$arg"
     esac
   done
 
-  while getopts "hngs" options; do
+  while getopts "hngsr" options; do
     case "${options}" in
       h)
-        usage
+        usage 2> >(errorHandle);
         exit
         ;;
       n)
-        req_su=false
+        req_su=false 2> >(errorHandle);
         ;;
       g)
-        gpu_only=true
+        gpu_only=true 2> >(errorHandle);
         ;;
       s)
-        sdt=false
+        skip_dep_test=false 2> >(errorHandle);
         ;;
+      r)
+        rconfig=true 2> >(errorHandle);
+        ;;
+      *)
+      ;;
     esac
   done
 fi
 
-function credit() {
-  echo "see-vram-script."
-  echo "https://github.com/W1ll1am04"
-  echo ""
-}
-
-if [ "$sdt" = true ]
-then
-  dependency_test
+# if resetconfig is true, then resetconfig. #
+if [ "$rconfig" = true ]; then
+  resetConfig > >(errorHandle)
 fi
 
-if [ "$gpu_only" = false ] ; 
-then
-  credit
+# test for required dependencies #
+if [ "$skip_dep_test" = true ]; then
+  for deps in "${dependencies[@]}"; do
+    dependency_test "$deps" 2> >(errorHandle);
+  done
 fi
 
-# checking whenever to use sudo or not.
-if [ "$req_su" = true ] ; 
-then
-  gpu_command=`sudo lshw -short | grep -i --color display`
+# Show credit if gpu only is false. #
+if [ "$gpu_only" = false ]; then
+  credit 2> >(errorHandle);
+fi
+
+# checking whenever to use sudo or not. #
+if [ "$req_su" = true ]; then
+  gpu_command=$(sudo lshw -short | grep -i --color display) 2> >(errorHandle);
 else
-  gpu_command=`lshw -short | grep -i --color display`
+  gpu_command=$(lshw -short | grep -i --color display) 2> >(errorHandle);
 fi
 
-# Splitting away spaces & brackets.
+# Splitting away spaces & brackets. #
+readarray -d "y" -t strarr <<< "$gpu_command" 2> >(errorHandle);
+gpu=$(echo ${strarr[1]} | sed 's/ *$//g') 2> >(errorHandle);
 
-readarray -d "y" -t strarr <<< "$gpu_command"
-gpu=`echo ${strarr[1]} | sed 's/ *$//g'`
-
-if [ "$gpu_only" = true ] ; 
-then
+if [ "$gpu_only" = true ]; then
   if [ -z "$gpu" ]
   then
-    echo "Unable to get GPU label."
+    echo "Unable to get GPU label." 2> >(errorHandle);
   else
-    echo -e "$gpu"
+    echo -e "$gpu" 2> >(errorHandle);
   fi
 else
-  if [ -z "$gpu" ]
-  then
-    echo "Unable to get GPU label."
+  if [ -z "$gpu" ]; then
+    echo "Unable to get GPU label." 2> >(errorHandle);
   else
-    echo -e "GPU: $gpu"
+    echo -e "GPU: $gpu" 2> >(errorHandle);
   fi
 fi
