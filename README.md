@@ -33,14 +33,15 @@ Boom, now run the script:
 ```
 ## Parameters
 ```
-usage: ./gpu.sh [OPTION]... [OPTION]... [OPTION...]
+usage: ./gpu.sh [OPTION]... [OPTION]... [OPTION]...
 A tool to see your gpu's label.
 Arguments & usage, and an explanation: 
-
--h, --help            display this message.
--n, --no-su           dont request superuser permission.
--g, --gpu-only        display gpu label only.
--s, --skip-dep-test   skip dependency test and just run the program.
+Options:
+-h, --help              display this message.
+-n, --no-su             dont request superuser permission.
+-g, --gpu-only          display gpu label only.
+-s, --skip-dep-test     skip dependency test and just run the program.
+-r  --reset-config      reset the current config file.
 ```
 ## License
 
