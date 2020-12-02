@@ -5,7 +5,7 @@ A tool to see your gpu's name.
 this script currently is only designed to work for Ubuntu linux.
 
 [![asciicast?](https://asciinema.org/a/321696.png)](https://asciinema.org/a/321696)
-This video was made when see-gpu-label-script was still in version 2.0. i will eventually update it.
+This video was made when see-gpu-label-script was still in an older version. i will eventually update it.
 
 ## Getting Started
 
