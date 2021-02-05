@@ -15,7 +15,7 @@ function dependency_test() {
   fi
 }
 
-# Handle errors, and log them if dolog is true, else echo it to the console instead. #
+# Echo errors to the console. #
 errorHandle() {
     while read -r line; do
       echo -e "$line"
